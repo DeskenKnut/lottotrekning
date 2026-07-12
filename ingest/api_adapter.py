@@ -15,6 +15,14 @@ BONUS_KEY = {
     "EUROJACKPOT": "stjernetall",
 }
 
+# API-et bruker andre navn enn nettsidens slugs (noen har " all" bak seg)
+API_GAME_NAME = {
+    "lotto": "lotto",
+    "vikinglotto": "vikinglotto",
+    "eurojackpot": "eurojackpot all",
+    "joker": "joker all",
+}
+
 def _to_int(s):
     if s is None or s == "":
         return None
@@ -68,7 +76,9 @@ class ApiResultAdapter(ResultAdapter):
         today = date.today()
         frm = (today - timedelta(weeks=self.weeks)).isoformat()
         to = (today + timedelta(days=1)).isoformat()
-        url = self.BASE.format(game=game.lower()) + f"?fromDate={frm}&toDate={to}"
+        from urllib.parse import quote
+        api_name = API_GAME_NAME.get(game.lower(), game.lower())
+        url = self.BASE.format(game=quote(api_name)) + f"?fromDate={frm}&toDate={to}"
         data = json.loads(self.client.get(url))
         draws = parse_api_results(game, data)
         if not draws:
@@ -81,5 +91,7 @@ class ApiResultAdapter(ResultAdapter):
         today = date.today()
         frm = (today - timedelta(weeks=self.weeks)).isoformat()
         to = (today + timedelta(days=1)).isoformat()
-        url = self.BASE.format(game=game.lower()) + f"?fromDate={frm}&toDate={to}"
+        from urllib.parse import quote
+        api_name = API_GAME_NAME.get(game.lower(), game.lower())
+        url = self.BASE.format(game=quote(api_name)) + f"?fromDate={frm}&toDate={to}"
         return parse_api_results(game, json.loads(self.client.get(url)))
