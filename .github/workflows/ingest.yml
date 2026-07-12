@@ -1,8 +1,12 @@
 name: ingest
 on:
   schedule:
-    - cron: "15 19 * * 2,6"
-  workflow_dispatch:
+    # Starter FØR det tidligste vinduet; scriptet venter så til et tilfeldig
+    # tidspunkt i hvert spills vindu (norsk tid, håndterer sommer/vintertid selv).
+    # UTC-tider valgt for sommertid; om vinteren venter scriptet ~1 t ekstra (ufarlig).
+    - cron: "50 17 * * 6"       # lørdag (Lotto + Joker)
+    - cron: "50 18 * * 2,3,5"   # tirsdag/onsdag/fredag (Eurojackpot, Vikinglotto+Joker)
+  workflow_dispatch:            # manuell kjøring = hent alle spill straks
 jobs:
   harvest:
     runs-on: ubuntu-latest
@@ -16,4 +20,3 @@ jobs:
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
-
