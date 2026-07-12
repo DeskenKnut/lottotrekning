@@ -89,7 +89,7 @@ LOTTO = GameSpec("LOTTO", (
 VIKINGLOTTO = GameSpec("VIKINGLOTTO", (
     NumberGroup("hovedtall", 6, 1, 48),
     NumberGroup("vikingtall", 1, 1, 5),
-), confirmed=False)
+))  # verifisert mot ekte API-data 2026-07
 
 EUROJACKPOT = GameSpec("EUROJACKPOT", (
     NumberGroup("hovedtall", 5, 1, 50),
