@@ -15,7 +15,7 @@ from site_contract import to_site_payload
 SUPABASE_URL = os.environ["SUPABASE_URL"]
 SUPABASE_KEY = os.environ["SUPABASE_SERVICE_KEY"]
  
-GAMES = ["lotto", "vikinglotto"]   # utvid når flere spill er bekreftet
+GAMES = ["lotto", "vikinglotto", "eurojackpot"]   # utvid når flere spill er bekreftet
  
  
 def upsert_draw(row: dict) -> None:
