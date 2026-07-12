@@ -62,7 +62,7 @@ def to_site_payload(result: DrawResult) -> dict:
         "game": result.game,
         "drawDateLabel": date_label(result.draw_date),
         "drawDateIso": result.draw_date.isoformat() if result.draw_date else None,
-        "mainNumbers": result.numbers.get("hovedtall", []),
+        "mainNumbers": result.numbers.get("hovedtall") or result.numbers.get("siffer") or [],
         "bonusNumbers": result.numbers.get(bonus_key, []) if bonus_key else [],
         "bonusLabel": cfg.get("bonus_label"),
         "prizeTiers": tiers,

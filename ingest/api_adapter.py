@@ -30,12 +30,18 @@ def _to_int(s):
 
 def parse_api_draw(game: str, d: dict) -> DrawResult:
     game = game.upper()
-    main = sorted(int(w["number"]) for w in d["winnerNumber"] if w.get("type") == 1)
-    bonus = sorted(int(w["number"]) for w in d["winnerNumber"] if w.get("type") == 2)
-    numbers = {"hovedtall": main}
-    bkey = BONUS_KEY.get(game)
-    if bonus and bkey:
-        numbers[bkey] = bonus
+    if game == "JOKER":
+        # Joker er en sifferrekke — behold trukket rekkefølge (IKKE sorter)
+        seq = [w for w in d["winnerNumber"] if w.get("type") == 1]
+        seq.sort(key=lambda w: w.get("drawOrder", 0))
+        numbers = {"siffer": [int(w["number"]) for w in seq]}
+    else:
+        main = sorted(int(w["number"]) for w in d["winnerNumber"] if w.get("type") == 1)
+        bonus = sorted(int(w["number"]) for w in d["winnerNumber"] if w.get("type") == 2)
+        numbers = {"hovedtall": main}
+        bkey = BONUS_KEY.get(game)
+        if bonus and bkey:
+            numbers[bkey] = bonus
 
     tiers = []
     for p in d.get("prize", []):

@@ -94,7 +94,7 @@ VIKINGLOTTO = GameSpec("VIKINGLOTTO", (
 EUROJACKPOT = GameSpec("EUROJACKPOT", (
     NumberGroup("hovedtall", 5, 1, 50),
     NumberGroup("stjernetall", 2, 1, 12),
-), confirmed=False)
+))  # verifisert mot ekte API-data 2026-07
 
 KENO = GameSpec("KENO", (
     NumberGroup("trukne", 20, 1, 70),
@@ -102,8 +102,8 @@ KENO = GameSpec("KENO", (
 
 # Joker er en sifferrekke (0–9). Antall siffer må bekreftes.
 JOKER = GameSpec("JOKER", (
-    NumberGroup("siffer", 7, 0, 9, unique=False),
-), confirmed=False)
+    NumberGroup("siffer", 5, 0, 9, unique=False),
+))  # verifisert mot ekte API-data 2026-07 (5 sifre, rekkefølge beholdes)
 
 # Extra og Nabolaget har avvikende struktur (Nabolaget er område-/postnummerbasert)
 # og håndteres ikke av den numeriske validatoren ennå — egne malvarianter ved bygg.
