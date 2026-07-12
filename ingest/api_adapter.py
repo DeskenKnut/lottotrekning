@@ -58,7 +58,7 @@ class ApiResultAdapter(ResultAdapter):
     name = "api:LotteryGameInfo"
     BASE = "https://api.norsk-tipping.no/LotteryGameInfo/v2/api/results/{game}"
 
-    def __init__(self, client=None, weeks: int = 16):
+    def __init__(self, client=None, weeks: int = 15):
         from sources import PoliteClient
         self.client = client or PoliteClient()
         self.weeks = weeks
