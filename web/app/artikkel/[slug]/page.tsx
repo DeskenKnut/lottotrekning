@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const a = await getArticle(slug);
   if (!a) return {};
-  return { title: `${a.tittel} — Lottotrekning`, description: a.ingress || undefined };
+  return { title: `${a.tittel} — Lottoresultater`, description: a.ingress || undefined };
 }
 
 export default async function Artikkel({ params }: { params: Promise<{ slug: string }> }) {
@@ -29,7 +29,7 @@ export default async function Artikkel({ params }: { params: Promise<{ slug: str
     description: a.ingress || undefined,
     datePublished: a.dato,
     author: { "@type": "Organization", name: "Desken AS" },
-    publisher: { "@type": "Organization", name: "Lottotrekning", legalName: "Desken AS" },
+    publisher: { "@type": "Organization", name: "Lottoresultater", legalName: "Desken AS" },
   };
 
   return (

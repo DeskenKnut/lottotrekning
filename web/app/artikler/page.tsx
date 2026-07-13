@@ -8,7 +8,7 @@ const SPILL = [["", "Alle spill"], ["lotto", "Lotto"], ["vikinglotto", "Vikinglo
 const TEMA = [["", "Alle tema"], ["guide", "Guider"], ["statistikk", "Statistikk"], ["forbrukervern", "Forbrukervern"], ["nyhet", "Nyheter"]];
 
 export const metadata = {
-  title: "Artikler om lotto, statistikk og spill — Lottotrekning",
+  title: "Artikler om lotto, statistikk og spill — Lottoresultater",
   description: "Guider, statistikk og forbrukeropplysning om Lotto, Vikinglotto, Eurojackpot og Joker.",
 };
 

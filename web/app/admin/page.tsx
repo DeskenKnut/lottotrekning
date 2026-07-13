@@ -63,7 +63,7 @@ export default function Admin() {
     return (
       <Wrap>
         <h1 style={{ fontFamily: "var(--font-display)", fontWeight: 900, fontSize: 30 }}>Logg inn</h1>
-        <p style={{ fontFamily: "var(--font-body)", color: C.dek, fontSize: 15 }}>Admin for Lottotrekning.</p>
+        <p style={{ fontFamily: "var(--font-body)", color: C.dek, fontSize: 15 }}>Admin for Lottoresultater.</p>
         <label style={lbl}>E-post</label>
         <input style={inp} value={epost} onChange={(e) => setEpost(e.target.value)} type="email" />
         <label style={lbl}>Passord</label>

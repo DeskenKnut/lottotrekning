@@ -4,7 +4,7 @@ import { GAMES } from "../../lib/stats";
 export const revalidate = 3600;
 
 export const metadata = {
-  title: "Lotto-statistikk: mest trukne tall og premietall — Lottotrekning",
+  title: "Lotto-statistikk: mest trukne tall og premietall — Lottoresultater",
   description: "Statistikk over hvilke tall som trekkes oftest i Lotto, Vikinglotto, Eurojackpot og Joker, basert på over ti år med trekninger.",
 };
 

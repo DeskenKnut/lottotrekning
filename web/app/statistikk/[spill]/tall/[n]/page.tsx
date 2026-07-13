@@ -97,7 +97,7 @@ export default async function NumberPage({ params }: { params: Promise<{ spill: 
         </div>
 
         <p style={{ fontFamily: "var(--font-ui)", fontSize: 12, color: C.meta, marginTop: 30, borderTop: `1px solid ${C.rule}`, paddingTop: 12 }}>
-          Kilde: Lottotrekning / Desken AS sitt trekningsarkiv, {s.count} trekninger {yearFrom}–{yearTo}.
+          Kilde: Lottoresultater / Desken AS sitt trekningsarkiv, {s.count} trekninger {yearFrom}–{yearTo}.
         </p>
       </div>
     </div>

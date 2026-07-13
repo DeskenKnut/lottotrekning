@@ -120,7 +120,7 @@ export default async function Pillar({ params }: { params: Promise<{ spill: stri
             </div>
 
             <p style={{ fontFamily: "var(--font-ui)", fontSize: 12, color: C.meta, marginTop: 30, borderTop: `1px solid ${C.rule}`, paddingTop: 12 }}>
-              Kilde: Lottotrekning / Desken AS sitt eget trekningsarkiv, {s.count} {g.label}-trekninger {yearFrom}–{yearTo}.
+              Kilde: Lottoresultater / Desken AS sitt eget trekningsarkiv, {s.count} {g.label}-trekninger {yearFrom}–{yearTo}.
             </p>
           </>
         )}
