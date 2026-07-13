@@ -26,7 +26,7 @@ export default function OmOss() {
     name: "Lottoresultater",
     legalName: "Desken AS",
     url: "https://lottoresultater.no",
-    email: "whist@desken.no",
+    email: "lottoresultater@desken.no",
     description: "Uavhengig tjeneste for norske lottoresultater, vinnertall og statistikk.",
     publishingPrinciples: "https://lottoresultater.no/om-oss",
   };
@@ -63,7 +63,7 @@ export default function OmOss() {
           <p>Vi er tydelige på én ting: lotteri er tilfeldighet. Ingen statistikk, app eller metode kan forutsi hvilke tall som trekkes, og vi lover aldri økt vinnersjanse. Tallene og statistikken vår er historiske fakta, ikke spilltips. Denne ærligheten er en del av hvorfor du kan stole på det du leser her.</p>
 
           <h2 style={{ fontFamily: DISPLAY, fontSize: 24, fontWeight: 700, margin: "26px 0 8px" }}>Utgiver og kontakt</h2>
-          <p>Lottoresultater utgis av <strong>Desken AS</strong>, org.nr 984 358 202 MVA. Har du spørsmål, rettelser eller innspill, når du oss på e-post: <a href="mailto:whist@desken.no" style={{ color: C.red }}>whist@desken.no</a>.</p>
+          <p>Lottoresultater utgis av <strong>Desken AS</strong>, org.nr 984 358 202 MVA. Har du spørsmål, rettelser eller innspill, når du oss på e-post: <a href="mailto:lottoresultater@desken.no" style={{ color: C.red }}>lottoresultater@desken.no</a>.</p>
 
           <div style={{ background: C.page, border: `1px solid ${C.rule}`, borderRadius: 2, padding: "16px 18px", marginTop: 20, fontFamily: UI, fontSize: 14, lineHeight: 1.6 }}>
             <strong>Ansvarlig spill.</strong> Lotteri er underholdning, ikke en spare- eller investeringsform. Du må være 18 år for å spille. Trenger du noen å snakke med om spill? Ring Hjelpelinjen: 800 800 40.

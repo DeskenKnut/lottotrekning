@@ -48,7 +48,7 @@ export default function Personvern() {
           <P>Denne erklæringen forklarer hvordan Lottoresultater behandler personopplysninger når du besøker nettstedet vårt, hvilke informasjonskapsler vi bruker, og hvilke rettigheter du har.</P>
 
           <H>Hvem er behandlingsansvarlig</H>
-          <P>Nettstedet drives og utgis av <strong>Desken AS</strong> (org.nr 984 358 202 MVA). Vi er behandlingsansvarlig for personopplysningene som behandles gjennom nettstedet. Har du spørsmål om personvern, kontakt oss på <a href="mailto:whist@desken.no" style={{ color: C.red }}>whist@desken.no</a>.</P>
+          <P>Nettstedet drives og utgis av <strong>Desken AS</strong> (org.nr 984 358 202 MVA). Vi er behandlingsansvarlig for personopplysningene som behandles gjennom nettstedet. Har du spørsmål om personvern, kontakt oss på <a href="mailto:lottoresultater@desken.no" style={{ color: C.red }}>lottoresultater@desken.no</a>.</P>
 
           <H>Hvilke opplysninger vi behandler</H>
           <P>Vi driver et innholdsnettsted og lagrer ingen brukerkontoer for besøkende. Opplysninger behandles i hovedsak gjennom tredjeparts-tjenester vi bruker for å drifte og finansiere siden:</P>
@@ -64,7 +64,7 @@ export default function Personvern() {
           <P>Vi selger ikke personopplysninger. Opplysninger behandles av leverandørene som gjør driften mulig – blant annet Google (annonser og analyse) og vår vertsleverandør. Disse behandler data på våre vegne eller som selvstendige behandlingsansvarlige i tråd med sine egne vilkår.</P>
 
           <H>Rettighetene dine</H>
-          <P>Etter personvernforordningen (GDPR) har du blant annet rett til innsyn i opplysninger om deg, retting, sletting, og til å trekke tilbake samtykke. Du har også rett til å klage til Datatilsynet dersom du mener behandlingen er i strid med regelverket. For å utøve rettighetene dine, kontakt oss på <a href="mailto:whist@desken.no" style={{ color: C.red }}>whist@desken.no</a>.</P>
+          <P>Etter personvernforordningen (GDPR) har du blant annet rett til innsyn i opplysninger om deg, retting, sletting, og til å trekke tilbake samtykke. Du har også rett til å klage til Datatilsynet dersom du mener behandlingen er i strid med regelverket. For å utøve rettighetene dine, kontakt oss på <a href="mailto:lottoresultater@desken.no" style={{ color: C.red }}>lottoresultater@desken.no</a>.</P>
 
           <H>Endringer</H>
           <P>Vi kan oppdatere denne erklæringen ved behov. Vesentlige endringer merkes med ny «sist oppdatert»-dato øverst.</P>
