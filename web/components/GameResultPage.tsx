@@ -125,6 +125,15 @@ function AdSlot({ size }: { size?: string }) {
   );
 }
 
+// Trekningsplan per spill (JS getDay: 0=søn,1=man,2=tir,3=ons,4=tor,5=fre,6=lør).
+// Joker og Eurojackpot trekkes to ganger i uken — nedtellingen velger den nærmeste.
+const DRAW_SCHEDULE: Record<string, { day: number; hour: number }[]> = {
+  LOTTO: [{ day: 6, hour: 20 }],
+  VIKINGLOTTO: [{ day: 3, hour: 21 }],
+  JOKER: [{ day: 3, hour: 21 }, { day: 6, hour: 20 }],
+  EUROJACKPOT: [{ day: 2, hour: 21 }, { day: 5, hour: 21 }],
+};
+
 export default function GameResultPage({ payload }: { payload: Payload }) {
   const totalBalls = payload.mainNumbers.length + payload.bonusNumbers.length;
   const isReduced = reduced();
@@ -166,21 +175,30 @@ export default function GameResultPage({ payload }: { payload: Payload }) {
   const [now, setNow] = useState(Date.now());
   useEffect(() => { const id = setInterval(() => setNow(Date.now()), 1000); return () => clearInterval(id); }, []);
   const countdown = useMemo(() => {
-    const { weekday, hour } = payload.nextDraw;
     const d = new Date(now);
-    const target = new Date(d);
-    const jsTarget = (weekday + 1) % 7;
-    const add = (jsTarget - d.getDay() + 7) % 7;
-    target.setDate(d.getDate() + add);
-    target.setHours(hour, 0, 0, 0);
-    if (target <= d) target.setDate(target.getDate() + 7);
-    let s = Math.floor((+target - +d) / 1000);
+    // Bruk spillets faste trekningsplan; fall tilbake til payload.nextDraw for ukjente spill.
+    let schedule = DRAW_SCHEDULE[payload.game];
+    if (!schedule) {
+      const { weekday, hour } = payload.nextDraw;
+      schedule = [{ day: (weekday + 1) % 7, hour }];
+    }
+    // Finn den nærmeste kommende trekningen blant alle trekningsdager.
+    let best: Date | null = null;
+    for (const { day, hour } of schedule) {
+      const t = new Date(d);
+      const add = (day - d.getDay() + 7) % 7;
+      t.setDate(d.getDate() + add);
+      t.setHours(hour, 0, 0, 0);
+      if (t <= d) t.setDate(t.getDate() + 7);
+      if (!best || t < best) best = t;
+    }
+    let s = Math.floor((+best! - +d) / 1000);
     const days = Math.floor(s / 86400); s -= days * 86400;
     const h = Math.floor(s / 3600); s -= h * 3600;
     const m = Math.floor(s / 60); const sec = s - m * 60;
     const pad = (n: number) => String(n).padStart(2, "0");
     return days >= 1 ? `${days}d ${pad(h)}t ${pad(m)}m` : `${pad(h)}t ${pad(m)}m ${pad(sec)}s`;
-  }, [now, payload.nextDraw]);
+  }, [now, payload.nextDraw, payload.game]);
 
   const weekdayAdj = payload.drawDateIso
     ? WD_ADJ[new Date(payload.drawDateIso).getDay() === 0 ? 6 : new Date(payload.drawDateIso).getDay() - 1]
