@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Lottotrekning — resultater",
+  title: "Lottoresultater — resultater",
   description: "Vinnertall og premier fra norske lottospill.",
   // NOINDEX mens dette er en funksjonstest. Fjern når dere går live på hoveddomenet.
   robots: { index: false, follow: false },
