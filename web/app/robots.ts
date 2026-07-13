@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const SITE = "https://lottotrekning.no"; // bytt til lottoresultater.no ved domeneskifte
+const SITE = "https://lottoresultater.no";
 
 // KI-crawlere som henter for SITERING/SØK (sender trafikk tilbake med lenke) — slippes inn.
 const AI_CITATION = [
@@ -12,16 +12,13 @@ const AI_CITATION = [
   "Claude-User",
   "Applebot",        // driver Siri/Spotlight-svar
 ];
-
 // Rene TRENINGS-crawlere (ingen sitering/trafikk) — holdes ute.
 const AI_TRAINING = ["GPTBot", "CCBot", "Google-Extended", "anthropic-ai"];
-
 // Aggressive masse-skrapere / SEO-verktøy (ingen verdi, høy skrape-risiko) — holdes ute.
 const BULK_SCRAPERS = [
   "Bytespider", "PetalBot", "DataForSeoBot", "MJ12bot", "AhrefsBot",
   "SemrushBot", "DotBot", "Scrapy", "Amazonbot",
 ];
-
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
