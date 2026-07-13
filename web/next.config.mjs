@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  poweredByHeader: false, // skjul "X-Powered-By: Next.js"
   // 301-redirects fra de gamle lottoresultater.no-adressene til de nye sidene.
   // Hvert hopp går DIREKTE til endelig adresse (ingen kjeder), og matcher tema.
   // Aktiveres når appen kjører på lottoresultater.no (se migreringssjekklisten).
@@ -28,6 +29,23 @@ const nextConfig = {
       { source: "/powerball-resultater", destination: "/", permanent: true },
 
       // MERK: /eurojackpot/ hadde samme adresse før og nå — ingen redirect nødvendig.
+    ];
+  },
+
+  // Sikkerhets-headere på alle sider (herder mot clickjacking, MIME-sniffing,
+  // og tvinger HTTPS). Påvirker ikke AdSense.
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+        ],
+      },
     ];
   },
 };
