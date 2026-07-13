@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getAllDraws } from "@/lib/getDraws";
-import { GAMES, isSpill, computeStats, statsForNumber, kr } from "@/lib/stats";
+import { getAllDraws } from "../../../../../lib/getDraws";
+import { GAMES, isSpill, computeStats, statsForNumber, kr } from "../../../../../lib/stats";
 
 export const revalidate = 3600;
 
