@@ -10,8 +10,7 @@ const ADS_CLIENT = "ca-pub-7026592530077937";
 export const metadata = {
   title: "Lottoresultater — resultater",
   description: "Vinnertall og premier fra norske lottospill.",
-  // NOINDEX mens dette er en funksjonstest. Fjern når dere går live på hoveddomenet.
-  robots: { index: false, follow: false },
+
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
