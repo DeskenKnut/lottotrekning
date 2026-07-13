@@ -7,6 +7,11 @@ on:
     - cron: "50 17 * * 6"       # lørdag (Lotto + Joker)
     - cron: "50 18 * * 2,3,5"   # tirsdag/onsdag/fredag (Eurojackpot, Vikinglotto+Joker)
   workflow_dispatch:            # manuell kjøring = hent alle spill straks
+    inputs:
+      game:
+        description: "Spill (valgfritt – tas imot, men full innhenting kjøres uansett foreløpig)"
+        required: false
+        default: ""
 jobs:
   harvest:
     runs-on: ubuntu-latest
