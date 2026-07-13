@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   poweredByHeader: false, // skjul "X-Powered-By: Next.js"
+  reactStrictMode: true,
   // 301-redirects fra de gamle lottoresultater.no-adressene til de nye sidene.
   // Hvert hopp går DIREKTE til endelig adresse (ingen kjeder), og matcher tema.
   // Aktiveres når appen kjører på lottoresultater.no (se migreringssjekklisten).
