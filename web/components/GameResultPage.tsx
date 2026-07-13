@@ -93,14 +93,34 @@ function Ball({ value, revealed, bonus }: { value: number; revealed: boolean; bo
   );
 }
 
-function AdSlot({ size }: { size: string }) {
+// Ekte AdSense-annonse (responsiv). Styres av samme bryter som resten:
+// vises kun når NEXT_PUBLIC_ADS_ENABLED = "true". Ellers vises ingenting
+// (ingen plassholder-bokser til besøkende).
+const ADS_ENABLED = process.env.NEXT_PUBLIC_ADS_ENABLED === "true";
+const AD_CLIENT = "ca-pub-7026592530077937";
+const AD_SLOT = "5524910523";
+
+function AdSlot({ size }: { size?: string }) {
+  useEffect(() => {
+    if (!ADS_ENABLED) return;
+    try {
+      // @ts-expect-error adsbygoogle legges på window av AdSense-skriptet i layout.tsx
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch {}
+  }, []);
+
+  if (!ADS_ENABLED) return null;
+
   return (
-    <div style={{
-      maxWidth: 468, margin: "26px auto", border: `1px dashed ${C.rule}`,
-      borderRadius: 2, padding: "18px 12px", textAlign: "center", background: C.card,
-    }}>
-      <div style={{ fontFamily: UI, fontSize: 10, letterSpacing: 1.5, textTransform: "uppercase", color: C.meta }}>Annonse</div>
-      <div style={{ fontFamily: UI, fontSize: 12, color: C.meta, marginTop: 4 }}>Google-annonse · {size}</div>
+    <div style={{ margin: "26px auto", textAlign: "center", maxWidth: 728 }} aria-label="Annonse">
+      <ins
+        className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client={AD_CLIENT}
+        data-ad-slot={AD_SLOT}
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      />
     </div>
   );
 }
